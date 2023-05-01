@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-users fa-2xl"> 회원가입 </i>
@@ -41,18 +43,18 @@
                            for="name">이름</label>
                     <div class="col-3">
                         <input type="text" name="name" id="name" readonly
-                               class="form-control border-danger bg-light"> </div>
+                               class="form-control border-danger bg-light" value="${mb.name}"> </div>
                 </div>
 
                 <div class="row col-11 offset-1 mb-3 align-items-center">
                     <label class="col-2 form-label text-danger text-end"
-                           for="jumin1">주민번호</label>
+                           for="jumin1a">주민번호</label>
                     <div class="col-3">
-                        <input type="text" name="jumin1" id="jumin1" readonly
-                               class="form-control border-danger bg-light"> </div>
+                        <input type="text" name="jumin1" id="jumin1a" readonly
+                               class="form-control border-danger bg-light" value="${mb.jumin1}"> </div>
                     <div class="col-3">
-                        <input type="text" name="jumin2" id="jumin2" readonly
-                               class="form-control border-danger bg-light"> </div>
+                        <input type="text" name="jumin2" id="jumin2a" readonly
+                               class="form-control border-danger bg-light" value="${mb.jumin2}"> </div>
                 </div>
 
                 <div class="row col-11 offset-1 mb-3 align-items-center">
@@ -171,7 +173,7 @@
                 <input type="hidden" name="zipcode" id="zipcode">
                 <input type="hidden" name="email" id="email">
                 <input type="hidden" name="phone" id="phone">
-
+            </div>
 
         </form>
 
