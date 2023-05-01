@@ -11,4 +11,16 @@ public class IndexController {
         return "index.tiles";
 
     }
+
+    @GetMapping("/intro")
+    public String intro(){
+        return "intro.tiles";
+
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin.tiles";
+
+    }
 }
