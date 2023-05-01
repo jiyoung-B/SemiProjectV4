@@ -26,17 +26,13 @@ noagree?.addEventListener('click', () => {
 
 
 // --------------------------------------------- checkme
-const name2 = document.querySelector('#name2');
-const jumin1 = document.querySelector('#jumin1');
-const jumin2 = document.querySelector('#jumin2');
-const chkjumin = document.querySelector('#chkjumin');
+const chkfrm2 = document.forms.checkfrm2;
 const chk2btn = document.querySelector('#check2btn');
-const chkfrm2 = document.querySelector('#checkfrm2');
 chk2btn?.addEventListener('click', () => {
-    if(name2.value == '') alert('이름을 입력하세요!!');
-    else if(jumin1.value == '') alert('주민번호를 입력하세요!!');
-    else if(jumin2.value == '') alert('나머지 주민번호를 입력하세요!!');
-    else if(!chkjumin.checked) alert('주민번호 처리에 동의하세요!!');
+    if(chkfrm2.name2.value === '') alert('이름을 입력하세요!!');
+    else if(chkfrm2.jumin1.value === '') alert('주민번호를 입력하세요!!');
+    else if(chkfrm2.jumin2.value === '') alert('나머지 주민번호를 입력하세요!!');
+    else if(!chkfrm2.chkjumin.checked) alert('주민번호 처리에 동의하세요!!');
     else {
         chkfrm2.method='post'
         chkfrm2.action='/join/joinme';
@@ -45,34 +41,19 @@ chk2btn?.addEventListener('click', () => {
 });
 
 // --------------------------------------------- joinme
-// const name = document.querySelector('#name');
-const jumin1a = document.querySelector('#jumin1a');
-const jumin2a = document.querySelector('#jumin2a');
-const repasswd = document.querySelector('#repasswd');
-const userid = document.querySelector('#userid');
-const passwd = document.querySelector('#passwd');
-const zip1 = document.querySelector('#zip1');
-const zip2 = document.querySelector('#zip2');
-const addr1 = document.querySelector('#addr1');
-const addr2 = document.querySelector('#addr2');
-const email1 = document.querySelector('#email1');
-const email2 = document.querySelector('#email2');
-const tel1 = document.querySelector('#tel1');
-const tel2 = document.querySelector('#tel2');
-const tel3 = document.querySelector('#tel3');
-const grecaptcha = document.querySelector('#g-recaptcha');
+const joinfrm = document.forms.joinfrm;
 const joinbtn = document.querySelector('#joinbtn');
 
 joinbtn?.addEventListener('click', () => {
-    if(userid.value == '') alert('아이디를 입력하세요!!')
-    else if(passwd.value == '') alert('비밀번호를 입력하세요!!')
-    else if(repasswd.value == '') alert('비밀번호를 확인을 입력하세요!!');
-    else if(repasswd.value != passwd.value) alert('비밀번호가 서로 일치하지 않아요!!');
-    else if(zip1.value == '' || zip2.value == '') alert('우편번호를 확인하세요!!');
-    else if(addr1.value == '' || addr2.value == '') alert('주소를 확인하세요!!');
-    else if(email1.value == '' || email2.value == '') alert('이메일을 확인하세요!!');
-    else if(tel2.value == '' || tel3.value == '') alert('전화번호를 확인하세요!!');
-    else if(grecaptcha.value == '') alert('자동가입방지를 확인하세요!!');
+    if(joinfrm.userid.value == '') alert('아이디를 입력하세요!!')
+    else if(joinfrm.passwd.value == '') alert('비밀번호를 입력하세요!!')
+    else if(joinfrm.repasswd.value == '') alert('비밀번호를 확인을 입력하세요!!');
+    else if(joinfrm.repasswd.value != joinfrm.passwd.value) alert('비밀번호가 서로 일치하지 않아요!!');
+    else if(joinfrm.zip1.value == '' || joinfrm.zip2.value == '') alert('우편번호를 확인하세요!!');
+    else if(joinfrm.addr1.value == '' || joinfrm.addr2.value == '') alert('주소를 확인하세요!!');
+    else if(joinfrm.email1.value == '' || joinfrm.email2.value == '') alert('이메일을 확인하세요!!');
+    else if(joinfrm.tel2.value == '' || joinfrm.tel3.value == '') alert('전화번호를 확인하세요!!');
+    else if(joinfrm.grecaptcha.value == '') alert('자동가입방지를 확인하세요!!');
     else{
         location.href = '/join/joinok';
     }
