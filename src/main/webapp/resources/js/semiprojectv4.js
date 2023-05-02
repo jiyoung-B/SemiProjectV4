@@ -47,6 +47,7 @@ const dong  = document.querySelector('#dong');
 const zipbtn = document.querySelector('#findzipbtn');
 const addrlist = document.querySelector('#addrlist');
 const sendzip = document.querySelector('#sendzip');
+const zipmodal = document.querySelector('#zipmodal');
 
 joinbtn?.addEventListener('click', () => {
     if(joinfrm.userid.value == '') alert('아이디를 입력하세요!!')
@@ -82,6 +83,22 @@ zipbtn?.addEventListener('click', () => {
     const url = '/join/zipcode?dong=' + dong.value;
     fetch(url).then(response => response.text())
         .then(text => showzipaddr(text));
+});
+sendzip?.addEventListener('click', () => {
+    let addr = addrlist.value;
+    if(addr !== ''){
+        // 123-456 서울 구로구 구로1동
+        let zip = addr.split(' ')[0]; // 123-456
+        joinfrm.zip1.value = zip.split('-')[0];
+        joinfrm.zip2.value = zip.split('-')[1];
+        let addrs = `${addr.split(' ')[1]}${addr.split(' ')[2]} ${addr.split(' ')[3]}`;
+        joinfrm.addr1.value = addrs;
+        bootstrap.Modal.getInstance(zipmodal).hide();
+
+
+    }else {
+        alert('주소를 선택하세요!!')
+    }
 });
 
 
