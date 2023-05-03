@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="main">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <div class="mt-5">
         <i class="fa-solid fa-users fa-2xl"> 회원가입 </i>
         <hr>
@@ -186,6 +187,7 @@
                 <input type="hidden" name="zipcode" id="zipcode">
                 <input type="hidden" name="email" id="email">
                 <input type="hidden" name="phone" id="phone">
+                <input type="hidden" name="checkuid" id="checkuid">
             </div>
 
         </form>
