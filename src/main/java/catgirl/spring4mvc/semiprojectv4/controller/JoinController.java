@@ -38,17 +38,19 @@ public class JoinController {
         return mv;
 
     }
-    @GetMapping("/joinok")
-    public String joinok2(){
-        return "join/joinok.tiles";
-
-    }
+//    @GetMapping("/joinok")
+//    public String joinok2(){
+//        return "join/joinok.tiles";
+//
+//    }
     @PostMapping("/joinok")
-    public ModelAndView joinok(Member mb){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("join/joinok.tiles");
-        mv.addObject("mb", mb);
-        return mv;
+    public String joinok(Member m, String grecaptcha){
+        String view = "error.titles";
+
+       if (jnsrv.newMember(m))
+            view = "join/joinok.tiles";
+
+        return view;
 
     }
 

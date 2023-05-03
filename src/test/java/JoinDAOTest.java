@@ -1,3 +1,4 @@
+import catgirl.spring4mvc.semiprojectv4.model.Member;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,23 @@ public class JoinDAOTest {
 
         uid = "abc123"; // 존재하는 아이디 검사
         assertEquals(1, (int)sqlSession.selectOne("join.selectOneUid", uid));
+
+    }
+
+    @Test
+    public void newMember(){
+        Member m = new Member();
+        m.setName("혜교");
+        m.setJumin1("123456");
+        m.setJumin2("1234567");
+        m.setUserid("abc123");
+        m.setPasswd("abc123");
+        m.setZipcode("123-456");
+        m.setAddr1("123-456");
+        m.setAddr2("123-456");
+        m.setEmail("123-456");
+        m.setPhone("123-456");
+        assertEquals(1, sqlSession.insert("join.insertMember", m));
 
     }
 

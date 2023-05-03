@@ -8,7 +8,7 @@ import java.util.List;
 public interface JoinDAO {
     List<Zipcode> selectZipcode(String dong);
 
-    int newMember(Member m);
+    int insertMember(Member m);
     int selectOneUserid(String uid);
 
     int selectOneMember(Member m);

@@ -167,7 +167,7 @@
                     <label class="col-2 form-label text-danger text-end mb-5" for="g-recaptcha">자동가입방지</label>
                     <div class="col-3">
                         <div class="g-recaptcha" data-sitekey="6LdJ4OskAAAAADNIADK7jJrjeVgeG9Y9mP3bx_V_"></div>
-                        <input type="hidden" name="g-recaptcha" id="g-recaptcha">
+                        <input type="hidden" name="grecaptcha" id="g-recaptcha">
                     </div>
                 </div>
 
