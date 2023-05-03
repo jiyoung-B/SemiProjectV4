@@ -53,6 +53,7 @@ const email3 = document.querySelector('#email3');
 const userid = document.querySelector('#userid');
 const uidmsg = document.querySelector('#uidmsg');
 const pwdmsg = document.querySelector('#pwdmsg');
+const repasswd = document.querySelector('#repasswd');
 
 
 const modal = new bootstrap.Modal(zipmodal, {});
@@ -139,16 +140,42 @@ dong?.addEventListener('keydown', () => {
         e.preventDefault(); // 이벤트 전파방지
     }
 })
+
+
+const styleCheckuid = (chkuid) => {
+    let msg = '사용 불가능한 아이디입니다!!';
+    uidmsg.style.color = 'red';
+
+    if(chkuid === '0'){
+        msg = '사용 가능한 아이디 입니다!!';
+        uidmsg.style.color = 'blue';
+    }
+    uidmsg.innerText = msg;
+}
+
 userid?.addEventListener('blur', () =>{
     if(userid.value === ''){
-        alert('중복 검색할 아이디를 입력하세요!!');
+        //alert('중복 검색할 아이디를 입력하세요!!');
+        uidmsg.innerText = '6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다'
+        uidmsg.style.color = 'gray';
+
         return;
     }
     const url = '/join/checkuid?uid=' + userid.value;
     fetch(url).then(response => response.text())
-        .then(text => alert(text));
+        .then(text => styleCheckuid(text));
 
 })
+
+repasswd?.addEventListener('blur', () => {
+    let pmsg = '비밀번호가 서로 일치하지 않습니다!!';
+    pwdmsg.style.color = 'red';
+    if(repasswd.value === joinfrm.passwd.value){
+        pmsg = '비밀번호는 서로 일치합니다!!';
+        pwdmsg.style.color = 'blue';
+    }
+    pwdmsg.innerText = pmsg;
+});
 
 
 
