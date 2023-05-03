@@ -1,6 +1,7 @@
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%><%-- 오류나므로 쓰지 않습니다.--%>
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--<html>
 <head>
     <title>Title</title>
@@ -10,8 +11,12 @@
 <header class="row">
     <div class="col"><h1 id="logo">Lorem Ipsum</h1></div>
     <div class="col text-end">
+        <c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" />
+        <c:if test="${! fn:startsWith(path, '/join')}">
         <button type="button" class="btn btn-danger mt-2" data-bs-target="#loginfrm" data-bs-toggle="modal">로그인</button>
         <button type="button" class="btn btn-primary mt-2">회원가입</button>
+        </c:if>
+
     </div>
 </header>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
