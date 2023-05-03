@@ -4,5 +4,9 @@
 
 <mapper namespace="member">
 
+    <select id="selectLogin" statementType="PREPARED" parameterType="catgirl.spring4mvc.semiprojectv4.model.Member" resultType="int">
+        select count(userid) cnt from member2 where userid = #{userid} and passwd = #{passwd}
+    </select>
+
 
 </mapper>
