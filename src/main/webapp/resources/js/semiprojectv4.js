@@ -55,8 +55,12 @@ const uidmsg = document.querySelector('#uidmsg');
 const pwdmsg = document.querySelector('#pwdmsg');
 const repasswd = document.querySelector('#repasswd');
 
+let modal = null;
+try {
+    modal = new bootstrap.Modal(zipmodal, {});
+} catch (e){
 
-const modal = new bootstrap.Modal(zipmodal, {});
+}
 
 joinbtn?.addEventListener('click', () => {
     if(joinfrm.userid.value == '') alert('아이디를 입력하세요!!')
@@ -140,7 +144,7 @@ email3?.addEventListener('change', () => {
 
     }
 });
-dong?.addEventListener('keydown', () => {
+dong?.addEventListener('keydown', (e) => {
     if(e.keyCode === 13){ // 엔터키를 누르면
         e.preventDefault(); // 이벤트 전파방지
     }
@@ -191,3 +195,10 @@ repasswd?.addEventListener('blur', () => {
 
 
 // --------------------------------------------- joinok
+const go2index = document.querySelector('#go2index');
+go2index?.addEventListener('click', () => {
+    location.href = '/';
+});
+
+
+
