@@ -32,7 +32,7 @@
     </div>
 
     <div class="jumbotron bg-warning text-white col-10 offset-1 p-5 my-5">
-        <h1>🎉회원가입을 축하합니다!!🎉</h1>
+        <h1>🎉${mb.name}님, 회원가입을 축하합니다!!🎉</h1>
         <p>게시판 글작성, 쇼핑몰 이용등의 일부 서비스는
             실명확인 후 이용하실 수 있습니다.<br>
             실명확인 후에도 가입하신 아이디는 변경할 수 없습니다.</p>
@@ -46,3 +46,4 @@
     </button></div>
 
 </div>
+<script src="/assets/js/join.js"></script>
