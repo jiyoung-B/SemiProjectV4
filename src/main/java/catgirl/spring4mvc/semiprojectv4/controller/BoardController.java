@@ -20,10 +20,11 @@ public class BoardController {
     public ModelAndView list(@RequestParam int cpg){
         ModelAndView mv = new ModelAndView();
 
+        mv.setViewName("board/list.tiles");
         // sungjuklist.jsp에 성적조회결과를 sjs라는 이름으로 넘김
         mv.addObject("board", brdsrv.boardList(cpg));
         mv.addObject("cpg", cpg);
-        mv.setViewName("board/list.tiles");
+        mv.addObject("stpg", ((cpg - 1) / 10) * 10 + 1); // startPage = ((cpg - 1) / 10) * 10 + 1);
         //mv.setViewName("board/list");
 
         return mv;

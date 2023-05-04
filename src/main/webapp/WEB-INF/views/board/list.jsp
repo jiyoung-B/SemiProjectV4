@@ -17,6 +17,20 @@
     // x를 구하는 식 : (x - 1 ) * 10, (x -1) * 10 -10
 
 %>
+
+<%
+    // 게시판 리스트 처리 - 네비게이션
+    // 현재 페이지에 따라서 보여줄 페이지 블럭을 결정
+    // ex) cp = 1 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 3 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 9 : 1 2 3 4 5 6 7 8 9 10 다음
+    // ex) cp = 11 : 이전 11 12 13 14 15 16 17 18 19 20 다음
+    // ex) cp = 15 : 이전 11 12 13 14 15 16 17 18 19 20 다음
+    // ex) cp = 23 : 이전 21 22 23 24 25 26 27 28 29 30 다음
+    // ex) cp = 52: 이전 51 52 53 54 55
+    // startPage = ((cp - 1) / 10) * 10 + 1
+    // endPage = startPage + 10 - 1
+%>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
@@ -94,8 +108,9 @@
                     <c:if test="${cpg-1 gt 0}"><li class="page-item "></c:if>
                     <c:if test="${cpg-1 le 0}"><li class="page-item disabled"></c:if>
                         <a class="page-link" href="${pglink}${cpg-1}">이전</a></li>
-
-                    <c:forEach var="i" begin="1" end="10">
+                        <%--// startPage = ((cp - 1) / 10) * 10 + 1
+                        // endPage = startPage + 10 - 1--%>
+                    <c:forEach var="i" begin="${stpg}" end="${stpg + 10 - 1}">
                         <c:if test="${i ne cpg}"><li class="page-item"></c:if>
                         <c:if test="${i eq cpg}"><li class="page-item active"></c:if>
                         <a class="page-link" href="${pglink}${i}">${i}</a></li>
