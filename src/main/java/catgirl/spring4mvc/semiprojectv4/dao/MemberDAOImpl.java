@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("mdao")
 public class MemberDAOImpl implements MemberDAO{
-    @Autowired
-    SqlSession sqlSession;
+    @Autowired private SqlSession sqlSession;
     @Override
     public int selectLogin(Member m) {
 

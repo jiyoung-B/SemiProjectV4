@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
@@ -9,8 +10,8 @@
         <div class="row offset-2 col-6">
             <div class="col-3">
                 <select class="form-select" id="findtype">
-                    <option value="subject">제목</option>
-                    <option value="sbjcont">제목+내용</option>
+                    <option value="title">제목</option>
+                    <option value="titcont">제목+내용</option>
                     <option value="contents">내용</option>
                     <option value="userid">작성자</option>
                 </select></div>
@@ -37,6 +38,7 @@
                 </thead>
 
                 <tbody>
+
                 <tr>
                     <th>공지</th>
                     <th><span class="badge text-bg-danger">Hot!</span>
@@ -46,15 +48,16 @@
                     <th>175</th>
                     <th>1345</th>
                 </tr>
-
+                <c:forEach items="${board}" var="bd">
                 <tr>
-                    <td>1</td>
-                    <td>석가탄신일·성탄절 대체공휴일 확정</td>
-                    <td>운영자</td>
-                    <td>2023-05-04</td>
-                    <td>175</td>
-                    <td>1345</td>
+                    <td>${bd.bno}</td>
+                    <td>${bd.title}</td>
+                    <td>${bd.userid}</td>
+                    <td>${bd.regdate}</td>
+                    <td>${bd.thumbs}</td>
+                    <td>${bd.views}</td>
                 </tr>
+                </c:forEach>
 
                 <tr>
                     <td>1</td>
@@ -105,5 +108,8 @@
     </div>
 
 
+
+
 </div>
+
 <script src="/assets/js/board.js"></script>
