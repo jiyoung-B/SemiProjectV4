@@ -22,6 +22,7 @@ public class BoardController {
 
         // sungjuklist.jsp에 성적조회결과를 sjs라는 이름으로 넘김
         mv.addObject("board", brdsrv.boardList(cpg));
+        mv.addObject("cpg", cpg);
         mv.setViewName("board/list.tiles");
         //mv.setViewName("board/list");
 
