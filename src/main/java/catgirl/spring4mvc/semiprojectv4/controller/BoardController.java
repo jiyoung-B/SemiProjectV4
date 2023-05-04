@@ -25,6 +25,7 @@ public class BoardController {
         mv.addObject("board", brdsrv.boardList(cpg));
         mv.addObject("cpg", cpg);
         mv.addObject("stpg", ((cpg - 1) / 10) * 10 + 1); // startPage = ((cpg - 1) / 10) * 10 + 1);
+        mv.addObject("cntpg", brdsrv.countBoard()); // startPage = ((cpg - 1) / 10) * 10 + 1);
         //mv.setViewName("board/list");
 
         return mv;

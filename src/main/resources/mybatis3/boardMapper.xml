@@ -8,6 +8,10 @@
         select bno, title, userid, thumbs, views, regdate from board order by bno desc limit #{stbno}, 25
     </select>
 
+    <select id="countBoard" statementType="PREPARED" resultType="int">
+        select ceil(count(bno)/25) cnt from board
+    </select>
+
 
 
 

@@ -8,4 +8,5 @@ public interface BoardDAO {
 
     List<Board> selectBoard(int stbno);
 
+    int countBoard();
 }

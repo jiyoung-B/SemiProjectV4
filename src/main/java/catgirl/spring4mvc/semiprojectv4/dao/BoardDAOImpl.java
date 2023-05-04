@@ -18,4 +18,10 @@ public class BoardDAOImpl implements BoardDAO{
 
         return sqlSession.selectList("board.selectBoard", stbno);
     }
+
+    @Override
+    public int countBoard() {
+        return sqlSession.selectOne("board.countBoard");
+
+    }
 }

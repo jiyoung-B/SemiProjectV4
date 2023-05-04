@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface BoardService {
     List<Board> boardList(int cpage);
+
+    int countBoard();
 }

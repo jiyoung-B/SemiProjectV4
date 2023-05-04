@@ -19,4 +19,10 @@ public class BoardServiceImpl implements BoardService{
         int stbno = (cpage -1) * 25; // 25page씩나타넴
         return brddao.selectBoard(stbno);
     }
+
+    @Override
+    public int countBoard() {
+
+        return brddao.countBoard();
+    }
 }

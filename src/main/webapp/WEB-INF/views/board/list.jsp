@@ -111,13 +111,16 @@
                         <%--// startPage = ((cp - 1) / 10) * 10 + 1
                         // endPage = startPage + 10 - 1--%>
                     <c:forEach var="i" begin="${stpg}" end="${stpg + 10 - 1}">
+                        <c:if test="${i le cntpg}">
                         <c:if test="${i ne cpg}"><li class="page-item"></c:if>
                         <c:if test="${i eq cpg}"><li class="page-item active"></c:if>
                         <a class="page-link" href="${pglink}${i}">${i}</a></li>
+                        </c:if>
 
                     </c:forEach>
 
-                        <li class="page-item">
+                        <c:if test="${cpg+1 lt cntpg}"><li class="page-item"></c:if>
+                        <c:if test="${cpg+1 gt cntpg}"><li class="page-item disabled"></c:if>
                             <a class="page-link" href="${pglink}${cpg+1}">다음</a></li>
                 </ul>
             </nav>
