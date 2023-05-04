@@ -1,5 +1,22 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%
+
+    // 게시판 리스트 처리 - 페이징
+    // 1. 전체 게시물 수 처리 (bdcnt : 526)
+    // 2. 페이지당 보여줄 게시물 수 지정 (=perPage : 10)
+    // 3. 총 페이지 수 계산 (=> 52 + 1)
+    // 4. 현재 페이지 번호 (cp, )
+    // ex) list.do?cp=1 : 526 ~ 517
+    // ex) list.do?cp=2 : 516 ~ 507
+    // ex) list.do?cp=3 : 506 ~ 497
+    // ...
+    // ex) list.do?cp=n : x ~ x - 9
+    // x를 구하는 식 : (x - 1 ) * 10, (x -1) * 10 -10
+
+%>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
@@ -24,7 +41,7 @@
             <button type="button" class="btn btn-light">
                 <i class="fa fa-plus-circle"> </i> 새글쓰기</button>
         </div>
-
+    </div>
     <div class="row mt-2">
         <div class="offset-2 col-8">
             <table class="table table-striped tbborder">
@@ -53,29 +70,12 @@
                     <td>${bd.bno}</td>
                     <td>${bd.title}</td>
                     <td>${bd.userid}</td>
-                    <td>${bd.regdate}</td>
+                    <td>${fn:substring(bd.regdate, 0, 10)}</td>
                     <td>${bd.thumbs}</td>
                     <td>${bd.views}</td>
                 </tr>
                 </c:forEach>
 
-                <tr>
-                    <td>1</td>
-                    <td>석가탄신일·성탄절 대체공휴일 확정</td>
-                    <td>운영자</td>
-                    <td>2023-05-04</td>
-                    <td>175</td>
-                    <td>1345</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>석가탄신일·성탄절 대체공휴일 확정</td>
-                    <td>운영자</td>
-                    <td>2023-05-04</td>
-                    <td>175</td>
-                    <td>1345</td>
-                </tr>
                 </tbody>
 
             </table>
@@ -110,6 +110,7 @@
 
 
 
-</div>
 
+
+</div>
 <script src="/assets/js/board.js"></script>

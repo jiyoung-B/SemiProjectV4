@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface BoardDAO {
 
-    List<Board> selectBoard();
+    List<Board> selectBoard(int stbno);
 
 }
