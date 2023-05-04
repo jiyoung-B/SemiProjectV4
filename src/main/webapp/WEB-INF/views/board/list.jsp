@@ -84,28 +84,30 @@
 
     </div>
 
+
+
+    <c: var="pglink" value="/board/list?cpg=">
     <div class="row">
         <div class="offset-2 col-8 text-end">
             <nav>
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled"><a class="page-link" href="href=#">이전</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">6</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">8</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">9</a></li>
-                    <li class="page-item"><a class="page-link" href="href=#">10</a></li>
+                    <li class="page-item"><a class="page-link" href="/board/list?cpg=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}3">3</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}5">5</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}6">6</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}7">7</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}8">8</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}9">9</a></li>
+                    <li class="page-item"><a class="page-link" href="${pglink}10">10</a></li>
                     <li class="page-item disabled"><a class="page-link" href="href=#">다음</a></li>
                 </ul>
             </nav>
-
         </div>
-
     </div>
+    </c:>
 
 
 
