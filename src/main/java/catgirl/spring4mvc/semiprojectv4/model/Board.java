@@ -50,6 +50,33 @@ public class Board {
         return regdate;
     }
 
+    public void setTitle(String 제목입니다) {
+    }
+
+    public void setBno(int bno) {
+        this.bno = bno;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public void setThumbs(int thumbs) {
+        this.thumbs = thumbs;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
+
     @Override
     public String toString() {
         return "Board{" +
@@ -62,4 +89,6 @@ public class Board {
                 ", regdate='" + regdate + '\'' +
                 '}';
     }
+
+
 }

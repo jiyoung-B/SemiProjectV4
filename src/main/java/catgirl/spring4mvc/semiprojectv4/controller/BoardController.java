@@ -1,10 +1,13 @@
 package catgirl.spring4mvc.semiprojectv4.controller;
 
+import catgirl.spring4mvc.semiprojectv4.model.Board;
 import catgirl.spring4mvc.semiprojectv4.service.BoardService;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +45,24 @@ public class BoardController {
 
 
         return mv;
+    }
+
+    @GetMapping("/write")
+    public String write(){
+        return "board/write.tiles";
+    }
+    @PostMapping("/write")
+    public String writeok(Board bd){
+        String viewPage = "error.tiles";
+        if(brdsrv.newBoard(bd)){
+            viewPage = "redirect:/board/list.tiles";
+        }
+        return viewPage;
+    }
+
+    @GetMapping("/view")
+    public String view(){
+        return "board/view.tiles";
     }
 
 }

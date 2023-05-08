@@ -47,4 +47,11 @@ public class BoardServiceImpl implements BoardService{
 
         return brddao.countBoard(params);
     }
+
+    @Override
+    public boolean newBoard(Board bd) {
+        boolean result = false;
+        if(brddao.insertBoard(bd) > 0) {result = true;}
+        return result;
+    }
 }

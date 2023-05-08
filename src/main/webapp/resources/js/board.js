@@ -7,3 +7,20 @@ findbtn?.addEventListener('click', () => {
     /*let query = `?ftype=${findtype.value}&fkey=${findkey.value}&cpg=1`;*/
     location.href = query;
 });
+
+
+const writebtn = document.querySelector("#writebtn");
+writebtn?.addEventListener('click', () => {
+    const bdfrm = document.forms.bdfrm;
+    if(bdfrm.title.value === '') alert('제목을 작성하세요!');
+    else if(bdfrm.content.value === '') alert('본문을 작성하세요!');
+    else if(grecaptcha.getResponse() === '') alert('자동가입방지를 확인하세요!');
+    else {
+        bdfrm.method = 'post';
+        bdfrm.submit();
+
+
+
+    }
+
+});

@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <label class="col-3 col-form-label text-danger text-end" for="title">작성자</label>
+                    <label class="col-3 col-form-label text-danger text-end" for="userid">작성자</label>
                     <div class="col-6">
                         <input type="text" name="userid" id="userid" readonly
                                class="form-control border-danger bg-light" value="abc123">

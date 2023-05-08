@@ -13,6 +13,8 @@ public interface BoardDAO {
 
     int countBoard();
     int countBoard(Map<String, Object> params);
+
     //int countBoard(int stbno, String ftype, String fkey);
+    int insertBoard(Board bd);
 
 }
