@@ -46,7 +46,7 @@
                     <option value="contents">내용</option>
                     <option value="userid">작성자</option>
                 </select></div>
-            <div class="col-4"><input type="text" class="form-control col-2" id="findkey"></div>
+            <div class="col-4"><input type="text" class="form-control col-2" id="findkey" value="${param.fkey}"></div>
             <div class="col-3">
             <button type="button" class="btn btn-light" id="findbtn">
                 <i class="fa fa-magnifying-glass"> </i> 검색하기</button></div>

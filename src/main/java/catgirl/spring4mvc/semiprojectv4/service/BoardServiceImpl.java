@@ -40,6 +40,11 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public int countBoard(String ftype, String fkey) {
-        return 0;
+        // 처리시 사용할 데이터들을 해쉬맵에 담아서 보냄
+        Map<String, Object> params = new HashMap<>();
+        params.put("ftype", ftype);
+        params.put("fkey", fkey);
+
+        return brddao.countBoard(params);
     }
 }

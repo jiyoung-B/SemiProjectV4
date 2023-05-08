@@ -26,4 +26,15 @@
         order by bno desc limit #{stbno}, 25
     </select>
 
+    <select id="countFindBoard" statementType="PREPARED" parameterType="map" resultType="int">
+        select ceil(count(bno) / 25) cnt from board
+        <if test="ftype != 'titcont'">
+            where ${ftype} like concat('%', #{fkey}, '%')</if>
+
+        <if test="ftype == 'titcont'">
+            where title like concat('%', #{fkey}, '%')
+                or content like concat('%', #{fkey}, '%')</if>
+
+    </select>
+
 </mapper>
