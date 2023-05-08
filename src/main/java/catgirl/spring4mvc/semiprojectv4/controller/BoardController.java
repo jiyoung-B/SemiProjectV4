@@ -31,4 +31,17 @@ public class BoardController {
         return mv;
     }
 
+    @GetMapping("/find")  // 검색처리 - 매개변수 ftype, fkey 추가
+    public ModelAndView find(int cpg, String ftype, String fkey){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("board", brdsrv.readBoard(cpg, ftype, fkey));
+        mv.addObject("cpg", cpg);
+        mv.addObject("stpg", ((cpg - 1) / 10) * 10 + 1); // startPage = ((cpg - 1) / 10) * 10 + 1);
+        mv.addObject("cntpg", brdsrv.countBoard(ftype, fkey)); // startPage = ((cpg - 1) / 10) * 10 + 1);
+        mv.setViewName("board/list.tiles");
+
+
+        return mv;
+    }
+
 }
