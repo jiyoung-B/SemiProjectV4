@@ -17,11 +17,11 @@
     <select id="selectFindBoard" statementType="PREPARED" parameterType="map" resultType="catgirl.spring4mvc.semiprojectv4.model.Board">
         select bno, title, userid, thumbs, views, regdate from board
         <if test="ftype != 'titcont'">
-          where ${ftype} like concat(#{fkey}, '%')</if>
+          where ${ftype} like concat('%', #{fkey}, '%')</if>
 
         <if test="ftype == 'titcont'">
-            where title like concat(#{fkey}, '%') or
-                          content like concat(#{fkey}, '%')</if>
+            where title like concat('%', #{fkey}, '%') or
+                          content like concat('%', #{fkey}, '%')</if>
 
         order by bno desc limit #{stbno}, 25
     </select>
