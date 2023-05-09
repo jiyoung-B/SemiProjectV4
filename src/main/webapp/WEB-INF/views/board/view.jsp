@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
@@ -20,12 +22,12 @@
         </div>
         <div class="row mt-2 offset-2 col-8">
             <table>
-                <tr><th class="vtit" colspan="2">제목입니다</th></tr>
+                <tr><th class="vtit" colspan="2">${bd.title}</th></tr>
                 <tr class="vinfo">
-                    <td class="text-start">작성자</td>
-                    <td class="text-end">2023-05-09 12:12:12 /10 / 10</td>
+                    <td class="text-start">${bd.userid}</td>
+                    <td class="text-end">${bd.regdate} / ${bd.thumbs} / ${bd.views}</td>
                 </tr>
-                <tr><td class="vcont" colspan="2">본문입니다</td></tr>
+                <tr><td class="vcont" colspan="2">${bd.content}</td></tr>
             </table>
         </div>
         <div class="row mt-2">
