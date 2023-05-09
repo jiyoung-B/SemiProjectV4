@@ -26,3 +26,11 @@ font-size: 32px; text-align: center}
 .vinfo td { padding: 5px; }
 .vcont{ height: 500px; border-bottom: 3px solid black; background:#ffffcc;
 padding: 5px; vertical-align: top;}
+
+/* bs5 tweak */
+a:not([class*="btn"]) {
+    text-decoration: none;
+}
+a:not([class*="btn"]):hover {
+    text-decoration: underline;
+}
