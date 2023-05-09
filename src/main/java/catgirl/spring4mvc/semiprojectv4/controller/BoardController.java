@@ -55,14 +55,18 @@ public class BoardController {
     public String writeok(Board bd){
         String viewPage = "error.tiles";
         if(brdsrv.newBoard(bd)){
-            viewPage = "redirect:/board/list.tiles";
+            viewPage = "redirect:/board/list?cpg=1";
         }
         return viewPage;
     }
 
     @GetMapping("/view")
-    public String view(){
-        return "board/view.tiles";
+    public ModelAndView view(@RequestParam String bno){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("bd", brdsrv.readOneBoard(bno));
+        mv.setViewName("board/view.tiles");
+
+        return mv;
     }
 
 }

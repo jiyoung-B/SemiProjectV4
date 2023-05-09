@@ -13,4 +13,6 @@ public interface BoardService {
 
     boolean newBoard(Board bd);
 
+    Board readOneBoard(String bno);
+
 }

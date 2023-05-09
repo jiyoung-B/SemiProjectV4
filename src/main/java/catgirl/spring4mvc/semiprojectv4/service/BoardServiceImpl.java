@@ -54,4 +54,9 @@ public class BoardServiceImpl implements BoardService{
         if(brddao.insertBoard(bd) > 0) {result = true;}
         return result;
     }
+
+    @Override
+    public Board readOneBoard(String bno) {
+        return brddao.selecOneBoard(bno);
+    }
 }

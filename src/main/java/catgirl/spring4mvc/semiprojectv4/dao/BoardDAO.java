@@ -17,4 +17,6 @@ public interface BoardDAO {
     //int countBoard(int stbno, String ftype, String fkey);
     int insertBoard(Board bd);
 
+    Board selecOneBoard(String bno);
+
 }

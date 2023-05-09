@@ -49,4 +49,21 @@ public class BoardDAOTest {
         System.out.println((int)(sqlSession.selectOne("board.countFindBoard", params)));
     }
 
+    @Test
+    public void insertBoard(){
+        Board bd = new Board();
+        bd.setTitle("제목입니다");
+        bd.setUserid("abc123");
+        bd.setContent("본문입니다.");
+        assertEquals(1, (int)sqlSession.insert("board.insertBoard", bd));
+        System.out.println(sqlSession.insert("board.insertBoard", bd));
+
+    }
+    @Test
+    public void selectOneBoard() {
+
+        assertNotNull(sqlSession.selectOne("board.selectOneBoard"), "123");
+    }
+
+
 }
