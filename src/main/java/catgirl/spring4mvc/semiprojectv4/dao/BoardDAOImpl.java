@@ -46,7 +46,7 @@ public class BoardDAOImpl implements BoardDAO{
 
     @Override
     public Board selecOneBoard(String bno) {
-
+        sqlSession.update("board.countViewBoard", bno);
         return sqlSession.selectOne("board.selectOneBoard", bno);
     }
 
