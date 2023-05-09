@@ -31,6 +31,14 @@
     // startPage = ((cp - 1) / 10) * 10 + 1
     // endPage = startPage + 10 - 1
 %>
+
+<%--검색기능 x 목록 조회--%>
+<c:set var="pglink" value="/baord/list?cpg=" />
+
+<%--검색기능 o 목록 조회--%>
+<c:if test="${not empty param.fkey}">
+    <c:set var="pglink" value="/baord/find?ftype=${param.ftype}&fkey=${param.fkey}&cpg=" />
+</c:if>
 <div id="main">
     <div class="mt-5">
         <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
@@ -39,6 +47,7 @@
 
     <div class="row mt-5">
         <div class="row offset-2 col-6">
+            <c:if test="${not empty sessionScope.UID}">
             <div class="col-3">
                 <select class="form-select" id="findtype">
                     <option value="title">제목</option>
@@ -50,10 +59,15 @@
             <div class="col-3">
             <button type="button" class="btn btn-light" id="findbtn">
                 <i class="fa fa-magnifying-glass"> </i> 검색하기</button></div>
+            </c:if>
+        <c:if test="${empty sessionScope.UID}">&nbsp;</c:if>
         </div>
         <div class="col-2 text-end">
-            <button type="button" class="btn btn-light">
+            <c:if test="${not empty sessionScope.UID}">
+            <button type="button" class="btn btn-light" id="newbtn">
                 <i class="fa fa-plus-circle"> </i> 새글쓰기</button>
+            </c:if>
+            <c:if test="${empty sessionScope.UID}">&nbsp;</c:if>
         </div>
     </div>
     <div class="row mt-2">
@@ -82,7 +96,7 @@
                 <c:forEach items="${board}" var="bd">
                 <tr>
                     <td>${bd.bno}</td>
-                    <td>${bd.title}</td>
+                    <td><a href="/board/view?bno=?${bd.bno}">${bd.title}</a></td>
                     <td>${bd.userid}</td>
                     <td>${fn:substring(bd.regdate, 0, 10)}</td>
                     <td>${bd.thumbs}</td>
@@ -100,7 +114,7 @@
 
 
 
-    <c:set var="pglink" value="/board/list?cpg="></c:set>
+<%--    <c:set var="pglink" value="/board/list?cpg="></c:set>--%>
     <div class="row">
         <div class="offset-2 col-8 text-end">
             <nav>
